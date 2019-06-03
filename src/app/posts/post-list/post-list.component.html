@@ -10,7 +10,7 @@
     </mat-panel-description>
     <mat-action-row>
       <button mat-raised-button color="primary">Edit</button>
-      <button mat-raised-button color="warn">Delete</button>
+      <button mat-raised-button color="warn" (click)="onDelete(post.id)">Delete</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
