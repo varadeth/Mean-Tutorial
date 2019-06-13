@@ -11,11 +11,15 @@ import { ErrorInteceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/posts.module';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { ExternalUrlDirective } from './external-url.directive';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ErrorComponent,
+    NotFoundComponent,
+    ExternalUrlDirective
   ],
   imports: [
     BrowserModule,
@@ -26,8 +30,8 @@ import { PostsModule } from './posts/posts.module';
     PostsModule,
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS,useClass: AuthInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS,useClass: ErrorInteceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInteceptor, multi: true}
   ],
   bootstrap: [AppComponent],
   entryComponents: [ErrorComponent]
