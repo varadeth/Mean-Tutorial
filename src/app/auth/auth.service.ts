@@ -6,7 +6,7 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 
-const BACKENDURL = environment.apiUrl + 'user';
+const BACKENDURL = environment.apiUrl + 'user/';
 @Injectable({
   providedIn: 'root'
 })
@@ -46,6 +46,7 @@ export class AuthService {
     const authData: AuthData = {email: email, password: password};
     this.http.post<{token: string, expiresIn: number, userId: string}>(BACKENDURL + '/login', authData)
       .subscribe(response => {
+
         this.token = response.token;
         if (this.token ) {
           const expiresInDuration = response.expiresIn;
@@ -60,6 +61,7 @@ export class AuthService {
           this.router.navigate(['/']);
         }
       }, error => {
+        console.log(error);
         this.authStatusListener.next(false);
       });
   }
