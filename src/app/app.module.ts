@@ -11,11 +11,14 @@ import { ErrorInteceptor } from './error-interceptor';
 import { ErrorComponent } from './error/error.component';
 import { AngularMaterialModule } from './angular-material.module';
 import { PostsModule } from './posts/posts.module';
+import { MattableExampleComponent } from './mattable-example/mattable-example.component';
+import {  MatTableModule, MatSortModule } from '@angular/material';
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ErrorComponent,
+    MattableExampleComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,6 +27,8 @@ import { PostsModule } from './posts/posts.module';
     HttpClientModule,
     AngularMaterialModule,
     PostsModule,
+    MatTableModule,
+    MatSortModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS,useClass: AuthInterceptor, multi: true},
